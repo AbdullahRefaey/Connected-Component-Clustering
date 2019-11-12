@@ -1,6 +1,6 @@
 # Connected-Component-Clustering
 
-Hands-on practice with:  Clustering Algorithm. Segmenting objects in binary images. Identifying, mapping, and clustering specific signs in different images.
+Hands-on practice with: 1.Clustering Algorithm. 2.Segmenting objects in binary images. 3.Identifying and mapping specific signs in different images.
 
 
 1.  Author: 
