@@ -1,0 +1,43 @@
+
+##################### Import Python Libraries/Packages #########################
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+import matplotlib.patches as mpatches
+import requests
+from urllib.request import urlopen
+import PIL
+from PIL import Image
+from scipy import ndimage as ndi
+from matplotlib.colors import ListedColormap
+from skimage import morphology
+from skimage.morphology import disk
+from skimage.filters import threshold_otsu
+from skimage import color
+from skimage import data
+from skimage import feature, measure
+from skimage.segmentation import clear_border
+from skimage.measure import label, regionprops
+from skimage.morphology import closing, square
+from skimage.color import label2rgb
+from google.colab import files
+%matplotlib inline
+
+################### Upload/Read/Display Grayscale Image ########################
+uploaded = files.upload()
+in_img = Image.open('proj1.gif')   # in_img: Grayscale image
+im = np.array(in_img,dtype=float)
+image = np.array(in_img,dtype=float)
+
+def showIM(im, title=None, **kwargs):
+    if 'cmap' not in kwargs:
+        kwargs['cmap'] = 'gray'
+    plt.figure()
+    plt.imshow(im, interpolation='none', **kwargs)
+    if title:
+        plt.title(title)
+    plt.axis('off')
+
+# Read Image
+im = plt.imread('proj1.gif')
+showIM(im, 'original Image')
