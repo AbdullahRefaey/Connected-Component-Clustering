@@ -1,6 +1,8 @@
 # Connected-Component-Clustering
-Author: Abdullah Refaey
+
 Hands-on practice with:  Clustering Algorithm. Segmenting objects in binary images. Identifying, mapping, and clustering specific signs in different images.
+
+Author: Abdullah Refaey
 
 1.	Aim: 
 •	Practice in Connected Component Clustering Algorithm. 
