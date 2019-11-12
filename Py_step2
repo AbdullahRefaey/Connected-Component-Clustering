@@ -1,0 +1,28 @@
+
+############################# Clustering/Labelling ############################# 
+gray_im = color.rgb2gray(im)
+# Parameters
+thresh = threshold_otsu(gray_im, nbins=5)
+thresholded = gray_im > thresh
+no_small = morphology.remove_small_objects(thresholded, min_size=150)
+crosses = morphology.binary_closing(no_small,disk(3))
+distance_im = ndi.distance_transform_edt(crosses)
+
+def imshow_overlay(im, mask, alpha=0.5, color='red', **kwargs):
+    mask = mask > 0
+    mask = np.ma.masked_where(~mask, mask)        
+    plt.imshow(im, **kwargs)
+    plt.imshow(mask, alpha=alpha, cmap=ListedColormap([color]))
+
+peaks_im = feature.peak_local_max(distance_im, indices=False)
+
+plt.figure()
+imshow_overlay(distance_im, peaks_im, alpha=1, cmap='gray')
+
+markers_im = measure.label(peaks_im)
+clustered_crosses = morphology.watershed(-distance_im, markers_im, mask=crosses)
+num_crosses = len(np.unique(clustered_crosses))-1  
+
+im = np.array(clustered_crosses,dtype=float)
+showIM(im, 'GS Clustered Crosses')         # This is out_img: Grayscaled Image
+showIM(clustered_crosses, 'Colored Clustered Crosses', cmap='jet')
