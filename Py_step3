@@ -1,0 +1,22 @@
+############################### Segmentation ###################################
+
+IM_thr = closing(image > thresh, square(3))
+Unartifacted = clear_border(IM_thr)
+cleaned = label(Unartifacted)
+image_label_overlay = label2rgb(cleaned, image=image)
+
+fig, ax = plt.subplots()
+ax.imshow(image_label_overlay)
+plt.title('Segmented Crosses')
+
+for region in regionprops(cleaned):
+    if region.area >= 100:
+        minr, minc, maxr, maxc = region.bbox
+        rect = mpatches.Rectangle((minc, minr), maxc - minc, maxr - minr,
+                                  fill=False, edgecolor='red', linewidth=2)
+        ax.add_patch(rect)
+
+ax.set_axis_off()
+plt.tight_layout()
+plt.show()
+showIM(image_label_overlay, 'color-coded Crosses')
