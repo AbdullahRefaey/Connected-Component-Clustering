@@ -1,21 +1,19 @@
 # Connected-Component-Clustering
 
-Hands-on practice with: 1.Clustering Algorithm. 2.Segmenting objects in binary images. 3.Identifying and mapping specific signs in different images.
+Using Python for: 1.Clustering Algorithm. 2.Segmenting objects in binary images. 3.Identifying and mapping specific signs in different images.
 
+1.	Aim: 
+•	Connected Component Clustering Algorithm. 
+•	Segmenting binary objects from background
 
-1.  Author: 
-•	Abdullah Refaey
-
-2.	Aim: 
-•	Practice in Connected Component Clustering Algorithm. 
-•	Practice in Segmenting binary objects from background
-
-3.	Input:
+2.	Input:
 •	Grayscale image with 8-adjacent pixels with graylevel = 255. 
 •	Dark background with graylevel = 0.
 
-4.	Output:
+3.	Output:
 •	Grayscale image with different objects at different well-separated gray levels.
 
-5.	Environment:
+4.	Environment:
 •	Google Colab – Python3.
+
+By A Refaey.
